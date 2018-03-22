@@ -3,14 +3,17 @@
 Gatsby plugin for using [Figma](https://figma.com) files as a data source.
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![npm](https://img.shields.io/npm/v/gatsby-source-figma.svg?style=flat-square)](https://npm.im/gatsby-source-figma)
 
-This is a work in progress. Currently, only querying of a single file is supported.
+---
 
 ## Installation
 
     yarn add gatsby-source-figma
 
-## How to use
+## Usage
+
+This is a work in progress. Currently, only querying of a single file is supported.
 
     // In your gatsby-config.js
     plugins: [
@@ -23,9 +26,9 @@ This is a work in progress. Currently, only querying of a single file is support
       },
     ],
 
-You can create an access token inside your [Figma settings](https://www.figma.com/developers/docs#auth-dev-token).
+Passing a `fileId` and an `accessToken` is required. You can create an access token inside your [Figma settings](https://www.figma.com/developers/docs#auth-dev-token).
 
-## How to query
+## Querying
 
 ```graphql
 query StyleguideQuery {
@@ -43,7 +46,7 @@ query StyleguideQuery {
 }
 ```
 
-Use the built in GraphiQL tool (http://localhost:8000/___graphql) to get an idea of what you can query.
+Use the built-in GraphiQL tool (http://localhost:8000/___graphql) to get an idea of what you can query.
 
 ## Todo
 
