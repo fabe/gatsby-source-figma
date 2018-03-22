@@ -1,10 +1,10 @@
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-
 # gatsby-source-figma
 
 Gatsby plugin for using [Figma](https://figma.com) files as a data source.
 
-> This is a work in progress. Currently, only querying of a single file is supported.
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+This is a work in progress. Currently, only querying of a single file is supported.
 
 ## Installation
 
@@ -43,7 +43,7 @@ query StyleguideQuery {
 }
 ```
 
-Use the built in GraphiQL tool (http://localhost:8000/___graphql) for to get an idea of what you can query.
+Use the built in GraphiQL tool (http://localhost:8000/___graphql) to get an idea of what you can query.
 
 ## Todo
 
