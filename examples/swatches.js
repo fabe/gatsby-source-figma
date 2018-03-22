@@ -1,7 +1,7 @@
 import React from 'react';
 
 const getRgb = ({ r, g, b }) => {
-  const scale = v => v * 255 / 1;
+  const scale = v => v * 255;
   return `rgb(${scale(r)}, ${scale(g)}, ${scale(b)})`;
 };
 
