@@ -8,7 +8,7 @@ Gatsby plugin for using [Figma](https://figma.com) files as a data source.
 
 ## Installation
 
-    yarn add @fabe/gatsby-source-figma
+    yarn add gatsby-source-figma
 
 ## How to use
 
