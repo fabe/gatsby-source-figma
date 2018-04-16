@@ -17,9 +17,7 @@ const fetchProject = (projectId, accessToken) =>
     method: `GET`,
     url: `https://api.figma.com/v1/projects/${projectId}/files`,
     headers: { 'X-Figma-Token': accessToken },
-  })
-    .then(({ data }) => data)
-    .catch(err => console.log(err));
+  }).then(({ data }) => data);
 
 module.exports = {
   fetchFile,

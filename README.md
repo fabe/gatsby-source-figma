@@ -1,11 +1,11 @@
 # gatsby-source-figma
 
-Gatsby plugin for using [Figma](https://figma.com) files as a data source.
-
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![npm](https://img.shields.io/npm/v/gatsby-source-figma.svg?style=flat-square)](https://npm.im/gatsby-source-figma)
 
-![](.github/screenshot.jpg)
+Gatsby plugin for using [Figma](https://figma.com) files as a data source.
+
+![Screenshot](.github/screenshot.jpg)
 
 ## Installation
 
