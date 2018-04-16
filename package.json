@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "author": "Fabian Schultz <desk@fabianschultz.com>",
+  "description": "Gatsby plugin for using Figma files as a data source.",
   "repository": {
     "type": "git",
     "url": "https://github.com/fabe/gatsby-source-figma"

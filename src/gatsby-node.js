@@ -1,57 +1,63 @@
-const axios = require(`axios`);
 const crypto = require(`crypto`);
-
-const fetch = (fileId, accessToken) =>
-  axios({
-    method: `GET`,
-    url: `https://api.figma.com/v1/files/${fileId}`,
-    headers: { 'X-Figma-Token': accessToken },
-  }).then(({ data }) => data);
+const Figma = require(`./api`);
 
 exports.sourceNodes = async (
   { boundActionCreators, reporter },
-  { fileId, accessToken }
+  { fileId, projectId, accessToken }
 ) => {
-  if (!fileId || !accessToken) {
+  if (!(fileId || projectId) || !accessToken) {
     reporter.panic(`
-"fileId" and "accessToken" are required options for gatsby-source-figma.
+"fileId" (or "projectId") and "accessToken" are required options for gatsby-source-figma.
+
+See docs here – https://github.com/fabe/gatsby-source-figma
+    `);
+  } else if (fileId && projectId) {
+    reporter.panic(`
+Please only set either "fileId" or "projectId" inside the gatsby-source-figma options.
 
 See docs here – https://github.com/fabe/gatsby-source-figma
     `);
   }
 
   const { createNode } = boundActionCreators;
+  let files = [];
+  let project = {};
 
-  const file = await fetch(fileId, accessToken);
-  const doc = file.document;
+  if (fileId) {
+    const file = await Figma.fetchFile(fileId, accessToken);
+    files = [file];
+  } else if (projectId) {
+    project = await Figma.fetchProject(projectId, accessToken);
 
-  const digest = crypto
-    .createHash(`md5`)
-    .update(JSON.stringify(file))
-    .digest(`hex`);
+    const projectFiles = project.files.map(file =>
+      Figma.fetchFile(file.key, accessToken)
+    );
 
-  const links = {
-    document___NODE: doc.id,
-  };
+    files = await Promise.all(projectFiles);
+  }
 
-  const node = Object.assign(
-    doc,
-    {
-      id: doc.id,
+  const createDocument = file => {
+    const digest = crypto
+      .createHash(`md5`)
+      .update(JSON.stringify(file))
+      .digest(`hex`);
+
+    return Object.assign(file.document, {
+      id: file.id,
       name: file.name,
       thumbnailUrl: file.thumbnailUrl,
       lastModified: file.lastModified,
       parent: `__SOURCE__`,
       children: [],
-      pages: doc.children,
+      pages: file.document.children,
       internal: {
-        type: `Figma${doc.type}`,
+        type: `Figma${file.document.type}`,
         contentDigest: digest,
       },
-    },
-    links
-  );
+      document___NODE: file.id,
+    });
+  };
 
-  createNode(node);
+  files.forEach(file => createNode(createDocument(file)));
   return;
 };
