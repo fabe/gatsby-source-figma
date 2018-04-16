@@ -11,6 +11,12 @@ exports.sourceNodes = async (
 
 See docs here – https://github.com/fabe/gatsby-source-figma
     `);
+  } else if (fileId && projectId) {
+    reporter.panic(`
+Please only set either "fileId" or "projectId" inside the gatsby-source-figma options.
+
+See docs here – https://github.com/fabe/gatsby-source-figma
+    `);
   }
 
   const { createNode } = boundActionCreators;
