@@ -82,5 +82,4 @@ Use the built-in GraphiQL tool (http://localhost:8000/___graphql) to get an idea
 * [ ] Query multiple `files`.
 * [ ] Query file `images`.
 * [x] Query `projects`.
-* [ ] Query team `projects`.
 * [ ] Query file `comments`.
