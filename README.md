@@ -83,3 +83,7 @@ Use the built-in GraphiQL tool (http://localhost:8000/___graphql) to get an idea
 * [ ] Query file `images`.
 * [x] Query `projects`.
 * [ ] Query file `comments`.
+
+## Author
+
+* Fabian Schultz ([@fschultz\_](https://twitter.com/fschultz_))
