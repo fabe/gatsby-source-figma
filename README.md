@@ -3,7 +3,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![npm](https://img.shields.io/npm/v/gatsby-source-figma.svg?style=flat-square)](https://npm.im/gatsby-source-figma)
 
-Gatsby plugin for using [Figma](https://figma.com) files as a data source.
+Gatsby plugin for using [Figma](https://figma.com) documents as a data source.
 
 ![Screenshot](.github/screenshot.jpg)
 
