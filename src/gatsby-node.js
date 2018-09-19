@@ -2,7 +2,7 @@ const crypto = require(`crypto`);
 const Figma = require(`./api`);
 
 exports.sourceNodes = async (
-  { boundActionCreators, reporter },
+  { actions, reporter },
   { fileId, projectId, accessToken }
 ) => {
   if (!(fileId || projectId) || !accessToken) {
@@ -19,7 +19,7 @@ See docs here – https://github.com/fabe/gatsby-source-figma
     `);
   }
 
-  const { createNode } = boundActionCreators;
+  const { createNode } = actions;
   let files = [];
   let project = {};
 
@@ -44,10 +44,11 @@ See docs here – https://github.com/fabe/gatsby-source-figma
 
     return Object.assign(file.document, {
       id: file.id,
+      figmaId: file.id,
       name: file.name,
       thumbnailUrl: file.thumbnailUrl,
       lastModified: file.lastModified,
-      parent: `__SOURCE__`,
+      parent: null,
       children: [],
       pages: file.document.children,
       internal: {
