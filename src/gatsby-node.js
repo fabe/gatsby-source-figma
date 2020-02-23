@@ -29,7 +29,7 @@ See docs here – https://github.com/fabe/gatsby-source-figma
     const file = await Figma.fetchFile(fileId, accessToken);
     
     files = [file];
-  } else {
+  } else if (projectId) {
     project = await Figma.fetchProject(projectId, accessToken);
 
     const projectFiles = project.files.map(file =>
