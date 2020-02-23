@@ -23,17 +23,25 @@ plugins: [
       // For files:
       fileId: `FIGMA_FILE_ID`,
       // For images:
-      nodeId: `FIGMA_NODE_ID`,
+      nodeId: [`FIGMA_NODE_ID`],
+      scale: 1,
+      format: 'png'
       // For projects:
       projectId: `FIGMA_PROJECT_ID`,
       // Get an access token from Figma Account Settings.
-      accessToken: `34856-0cc91542-4f1b-46bd-affc-71eb7ba1a758`,
+      accessToken: `FIGMA_ACCESS_TOKEN`,
     },
   },
 ],
 ```
 
-Passing a `fileId` or `projectId` and an `accessToken` is required. You can create an access token inside your [Figma settings](https://www.figma.com/developers/docs#auth-dev-token).
+For all requests, you must have an `accessToken`. You can create an access token inside your [Figma settings](https://www.figma.com/developers/docs#auth-dev-token).
+
+To access a file, also pass a `fileId`.
+
+To get screenshots, also pass in a `fileId`, `nodeId`. Additionally, you can pass in `scale` (number) and/or `format` (png, jpg, svg, pdf), but they're not required. 
+
+To get a project, pass in a `projectId`.
 
 ## Querying
 
@@ -59,7 +67,7 @@ query StyleguideQuery {
 
 ### Images
 
-Make sure that `fileId`, `nodeId`, and `accessToken` are set inside `gatsby-config.js`.
+Make sure that `fileId`, `nodeId`, and `accessToken` are set inside `gatsby-config.js`. You can also set `scale` and `format`.
 
 ```graphql
 query ProjectQuery {
@@ -97,7 +105,7 @@ Use the built-in GraphiQL tool (http://localhost:8000/___graphql) to get an idea
 
 * [x] Query `files`.
 * [ ] Query multiple `files`.
-* [x] Query multiple `images`.
+* [x] Query file one or multiple `images`.
 * [x] Query `projects`.
 * [ ] Query file `comments`.
 
