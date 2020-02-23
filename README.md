@@ -29,7 +29,7 @@ plugins: [
       // For projects:
       projectId: `FIGMA_PROJECT_ID`,
       // Get an access token from Figma Account Settings.
-      accessToken: `FIGMA_ACCESS_TOKEN`,
+      accessToken: `YOUR_FIGMA_ACCESS_TOKEN`,
     },
   },
 ],
