@@ -24,19 +24,12 @@ See docs here – https://github.com/fabe/gatsby-source-figma
   let images = [];
   let project = {};
 
-  if (fileId && !nodeIds) {
+  if (fileId) {
 
     const file = await Figma.fetchFile(fileId, accessToken);
     
     files = [file];
-  } else if (fileId && nodeIds) {
-    const imagesData = nodeIds.map(nodeId =>
-      Figma.fetchNode(fileId, nodeId, scale, format, accessToken)
-    );
-
-    images = await Promise.all(imagesData);
-  }
-  else if (projectId) {
+  } else {
     project = await Figma.fetchProject(projectId, accessToken);
 
     const projectFiles = project.files.map(file =>
@@ -44,6 +37,14 @@ See docs here – https://github.com/fabe/gatsby-source-figma
     );
 
     files = await Promise.all(projectFiles);
+  }
+
+  if (fileId && nodeIds) {
+    const imagesData = nodeIds.map(nodeId =>
+      Figma.fetchNode(fileId, nodeId, scale, format, accessToken)
+    );
+
+    images = await Promise.all(imagesData);
   }
 
   const createDocument = file => {

@@ -23,7 +23,7 @@ plugins: [
       // For files:
       fileId: `FIGMA_FILE_ID`,
       // For images:
-      nodeId: [`FIGMA_NODE_ID`],
+      nodeId: [`FIGMA_NODE_IDS`],
       scale: 1,
       format: 'png'
       // For projects:
@@ -105,7 +105,7 @@ Use the built-in GraphiQL tool (http://localhost:8000/___graphql) to get an idea
 
 * [x] Query `files`.
 * [ ] Query multiple `files`.
-* [x] Query file one or multiple `images`.
+* [x] Query one or multiple file `images`.
 * [x] Query `projects`.
 * [ ] Query file `comments`.
 
