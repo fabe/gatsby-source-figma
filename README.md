@@ -22,10 +22,12 @@ plugins: [
     options: {
       // For files:
       fileId: `FIGMA_FILE_ID`,
+      // For images:
+      nodeId: `FIGMA_NODE_ID`,
       // For projects:
       projectId: `FIGMA_PROJECT_ID`,
       // Get an access token from Figma Account Settings.
-      accessToken: `YOUR_FIGMA_ACCESS_TOKEN`,
+      accessToken: `34856-0cc91542-4f1b-46bd-affc-71eb7ba1a758`,
     },
   },
 ],
@@ -50,6 +52,21 @@ query StyleguideQuery {
       children {
         name
       }
+    }
+  }
+}
+```
+
+### Images
+
+Make sure that `fileId`, `nodeId`, and `accessToken` are set inside `gatsby-config.js`.
+
+```graphql
+query ProjectQuery {
+  allFigmaImage {
+    nodes {
+      id
+      image
     }
   }
 }
@@ -80,7 +97,7 @@ Use the built-in GraphiQL tool (http://localhost:8000/___graphql) to get an idea
 
 * [x] Query `files`.
 * [ ] Query multiple `files`.
-* [ ] Query file `images`.
+* [x] Query multiple `images`.
 * [x] Query `projects`.
 * [ ] Query file `comments`.
 
