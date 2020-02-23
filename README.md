@@ -69,6 +69,11 @@ query StyleguideQuery {
 
 Make sure that `fileId`, `nodeId`, and `accessToken` are set inside `gatsby-config.js`. You can also set `scale` and `format`.
 
+
+`The node Id and file key can be parsed from any Figma node url: 
+(https://www.figma.com/file/:key/:title?node-id=:id).`
+
+
 ```graphql
 query ProjectQuery {
   allFigmaImage {
