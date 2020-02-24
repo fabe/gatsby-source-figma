@@ -75,7 +75,7 @@ Make sure that `fileId`, `nodeId`, and `accessToken` are set inside `gatsby-conf
 
 
 ```graphql
-query ProjectQuery {
+query ImageQuery {
   allFigmaImage {
     nodes {
       id
