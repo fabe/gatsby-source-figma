@@ -65,7 +65,7 @@ query StyleguideQuery {
 }
 ```
 
-### Images
+### Images (Artboards, also known as nodes)
 
 Make sure that `fileId`, `nodeId`, and `accessToken` are set inside `gatsby-config.js`. You can also set `scale` and `format`.
 
