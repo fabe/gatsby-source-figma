@@ -23,7 +23,7 @@ plugins: [
       // For files:
       fileId: `FIGMA_FILE_ID`,
       // For images:
-      nodeId: [`FIGMA_NODE_IDS`],
+      nodeIds: [`FIGMA_NODE_IDS`],
       scale: 1,
       format: 'png'
       // For projects:
@@ -39,7 +39,7 @@ For all requests, you must have an `accessToken`. You can create an access token
 
 To access a file, also pass a `fileId`.
 
-To get screenshots, also pass in a `fileId`, `nodeId`. Additionally, you can pass in `scale` (number) and/or `format` (png, jpg, svg, pdf), but they're not required. 
+To get screenshots, also pass in a `fileId`, `nodeIds`. Additionally, you can pass in `scale` (number) and/or `format` (png, jpg, svg, pdf), but they're not required. 
 
 To get a project, pass in a `projectId`.
 
@@ -67,7 +67,7 @@ query StyleguideQuery {
 
 ### Images (Artboards, also known as nodes)
 
-Make sure that `fileId`, `nodeId`, and `accessToken` are set inside `gatsby-config.js`. You can also set `scale` and `format`.
+Make sure that `fileId`, `nodeIds`, and `accessToken` are set inside `gatsby-config.js`. You can also set `scale` and `format`.
 
 
 `The node Id and file key can be parsed from any Figma node url: 
