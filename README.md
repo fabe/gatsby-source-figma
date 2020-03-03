@@ -24,8 +24,10 @@ plugins: [
       fileId: `FIGMA_FILE_ID`,
       // For images:
       nodeIds: [`FIGMA_NODE_IDS`],
+      // optional for nodeIds: A number between 0.01 and 4, the image scaling factor
       scale: 1,
-      format: 'png'
+      // optional: A string enum for the image output format, can be jpg, png, svg, or pdf
+      format: 'png' 
       // For projects:
       projectId: `FIGMA_PROJECT_ID`,
       // Get an access token from Figma Account Settings.
