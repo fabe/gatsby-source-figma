@@ -1,5 +1,5 @@
-const crypto = require(`crypto`);
 const Figma = require(`./api`);
+const { createContentDigest } = require('gatsby-core-utils');
 
 exports.sourceNodes = async (
   { actions, reporter },
@@ -48,10 +48,6 @@ See docs here – https://github.com/fabe/gatsby-source-figma
   }
 
   const createDocument = file => {
-    const fileDigest = crypto
-      .createHash(`md5`)
-      .update(JSON.stringify(file))
-      .digest(`hex`);
 
     return Object.assign(file.document, {
       id: file.id,
@@ -64,29 +60,25 @@ See docs here – https://github.com/fabe/gatsby-source-figma
       pages: file.document.children,
       internal: {
         type: `Figma${file.document.type}`,
-        contentDigest: fileDigest,
+        contentDigest: createContentDigest(JSON.stringify(file)),
       },
       document___NODE: file.id,
     });
   };
 
   const createImage = image => {
-    const imageDigest = crypto
-      .createHash(`md5`)
-      .update(JSON.stringify(image))
-      .digest(`hex`);
-
+    
     // figma returns images with encoded IDs, so we have to decode
-    const indImage = image.images[Object.keys(image.images)[0]];
+    const imageSrc = image.images[Object.keys(image.images)[0]];
 
     return Object.assign(image, {
       id: image.id,
       figmaId: image.id,
       name: image.name,
-      image: indImage,
+      image: imageSrc,
       internal: {
         type: `FigmaImage`,
-        contentDigest: imageDigest,
+        contentDigest: createContentDigest(JSON.stringify(image))
       },
       document___NODE: image.id,
     });
