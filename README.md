@@ -89,9 +89,11 @@ query ImageQuery {
 
 ### Projects
 
-Make sure that `projectId` and `accessToken` are set inside `gatsby-config.js`.
+Make sure that `projectId` and `accessToken` are set inside `gatsby-config.js`. Using this method, you can now query `components`, `frames`, `instances`, and more via `graphql` filters. 
 
-```graphql
+```
+// All Figma Documents
+
 query ProjectQuery {
   allFigmaDocument {
     edges {
@@ -100,6 +102,38 @@ query ProjectQuery {
         pages {
           name
         }
+      }
+    }
+  }
+}
+```
+
+```
+// Specific Figma Component
+
+query ProjectComponentQuery {
+  figmaComponent(name: {eq: "MyComponent"}) {
+    instances {
+      name
+      rectangles {
+        name
+      }
+      texts {
+        name
+      }
+    }
+  }
+}
+```
+
+```
+// Figma Frames that start with "Button"
+
+query ProjectFrameQuery {
+  allFigmaFrame(filter: {name: {regex: "/Button/"}}) {
+    edges {
+      node {
+        name
       }
     }
   }
