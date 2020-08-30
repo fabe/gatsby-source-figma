@@ -27,7 +27,7 @@ plugins: [
       // optional for nodeIds: A number between 0.01 and 4, the image scaling factor
       scale: 1,
       // optional: A string enum for the image output format, can be jpg, png, svg, or pdf
-      format: 'png' 
+      format: 'png'
       // For projects:
       projectId: `FIGMA_PROJECT_ID`,
       // Get an access token from Figma Account Settings.
@@ -41,7 +41,7 @@ For all requests, you must have an `accessToken`. You can create an access token
 
 To access a file, also pass a `fileId`.
 
-To get screenshots, also pass in a `fileId`, `nodeIds`. Additionally, you can pass in `scale` (number) and/or `format` (png, jpg, svg, pdf), but they're not required. 
+To get screenshots, also pass in a `fileId`, `nodeIds`. Additionally, you can pass in `scale` (number) and/or `format` (png, jpg, svg, pdf), but they're not required.
 
 To get a project, pass in a `projectId`.
 
@@ -72,7 +72,7 @@ query StyleguideQuery {
 Make sure that `fileId`, `nodeIds`, and `accessToken` are set inside `gatsby-config.js`. You can also set `scale` and `format`.
 
 
-`The node Id and file key can be parsed from any Figma node url: 
+`The node Id and file key can be parsed from any Figma node url:
 (https://www.figma.com/file/:key/:title?node-id=:id).`
 
 
@@ -89,7 +89,7 @@ query ImageQuery {
 
 ### Projects
 
-Make sure that `projectId` and `accessToken` are set inside `gatsby-config.js`. Using this method, you can now query `components`, `frames`, `instances`, and more via `graphql` filters. 
+Make sure that `projectId` and `accessToken` are set inside `gatsby-config.js`. Using this method, you can now query `components`, `frames`, `instances`, and more via `graphql` filters.
 
 ```
 // All Figma Documents
@@ -150,6 +150,8 @@ Use the built-in GraphiQL tool (http://localhost:8000/___graphql) to get an idea
 * [x] Query `projects`.
 * [ ] Query file `comments`.
 
-## Author
+## Authors
 
 * Fabian Schultz ([@fschultz\_](https://twitter.com/fschultz_))
+* Emilie Martinez ([@emiliekmartinez](https://twitter.com/emiliekmartinez))
+* Brandon W. Kipp ([brandonwkipp](https://github.com/brandonwkipp))
